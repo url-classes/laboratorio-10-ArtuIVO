@@ -8,4 +8,6 @@ myRBTree.insert(20);
 myRBTree.insert(30);
 myRBTree.insert(50);
 myRBTree.insert(45);
-myRBTree.printAll();
+myRBTree.inOrderTraversal();
+
+console.log(myRBTree.search(11));

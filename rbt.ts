@@ -133,4 +133,33 @@ export class RBTree {
         // corregir inserción
         this.fixInsert(newNode);
     }
+    
+    public search(data: number): NodeRBT | null {
+        let current = this.root;
+        while (current !== this.leaf) {
+            if (data === current.getData()) {
+                return current; // Nodo encontrado
+            } else if (data < current.getData()) {
+                current = current.getLeftChild();
+            } else {
+                current = current.getRightChild();
+            }
+        }
+        return null; // Nodo no encontrado
+    }
+    
+    public inOrderTraversal(): void {
+        this.inOrderHelper(this.root);
+    }
+    
+    private inOrderHelper(node: NodeRBT): void {
+        if (node !== this.leaf) {
+            this.inOrderHelper(node.getLeftChild());
+            console.log(node.getData() + "(" + node.getColor() + ")");
+            this.inOrderHelper(node.getRightChild());
+        }
+    }
+    
 }
+
+
